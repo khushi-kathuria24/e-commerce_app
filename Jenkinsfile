@@ -10,16 +10,27 @@ pipeline {
 
         stage('Validate Compose') {
             steps {
-                dir('frontend') {
-                    sh 'echo Frontend repo present'
+                script {
+                    if (isUnix()) {
+                        sh 'echo Frontend repo present'
+                        sh 'docker compose config'
+                    } else {
+                        bat 'echo Frontend repo present'
+                        bat 'docker compose config'
+                    }
                 }
-                sh 'docker compose config'
             }
         }
 
         stage('Build Images') {
             steps {
-                sh 'docker compose build'
+                script {
+                    if (isUnix()) {
+                        sh 'docker compose build'
+                    } else {
+                        bat 'docker compose build'
+                    }
+                }
             }
         }
     }
