@@ -1,0 +1,242 @@
+:root {
+  --ink: #1d1f2b;
+  --muted: #5f6376;
+  --paper: #fff9f3;
+  --card: rgba(255, 255, 255, 0.82);
+  --line: rgba(30, 31, 43, 0.14);
+  --brand: #ea6f2d;
+  --brand-dark: #bf4f18;
+  --ok: #1f8b4c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(234, 111, 45, 0.22), transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(90, 188, 187, 0.18), transparent 42%),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Space Grotesk", "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  width: min(1120px, 94vw);
+  margin: 0 auto;
+  padding: 40px 0 36px;
+}
+
+.hero {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(130deg, rgba(255, 255, 255, 0.85), rgba(255, 245, 237, 0.9));
+  padding: 28px;
+  box-shadow: 0 18px 44px rgba(15, 20, 35, 0.08);
+  animation: rise-in 0.45s ease-out;
+}
+
+.eyebrow {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+  font-size: 0.72rem;
+  margin: 0 0 8px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  color: var(--muted);
+  max-width: 700px;
+}
+
+.panel-grid {
+  margin-top: 22px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+
+.section-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  backdrop-filter: blur(5px);
+  padding: 18px;
+  box-shadow: 0 10px 28px rgba(20, 22, 33, 0.07);
+  animation: rise-in 0.45s ease-out;
+}
+
+.section-card h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.section-copy {
+  margin: 7px 0 12px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.row-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.row-form.split {
+  flex-direction: column;
+}
+
+.compact-top {
+  margin-top: 10px;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  flex: 1;
+  min-width: 150px;
+  border: 1px solid rgba(31, 32, 47, 0.25);
+  border-radius: 10px;
+  padding: 9px 11px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+select[multiple] {
+  min-height: 110px;
+}
+
+.product-checkbox-list {
+  max-height: 160px;
+  overflow-y: auto;
+  border: 1px solid rgba(31, 32, 47, 0.25);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 8px;
+}
+
+.product-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px;
+  color: #2d3245;
+}
+
+.product-checkbox-item + .product-checkbox-item {
+  border-top: 1px solid rgba(29, 31, 43, 0.08);
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(125deg, var(--brand), #ec8c4c);
+  color: #fff;
+  padding: 9px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 9px 16px rgba(202, 92, 34, 0.3);
+}
+
+.stack-list,
+.inner-list {
+  margin: 12px 0 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.stack-item {
+  border: 1px solid rgba(29, 31, 43, 0.12);
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 11px;
+  padding: 10px;
+}
+
+.stack-item + .stack-item {
+  margin-top: 8px;
+}
+
+.stack-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.badge {
+  background: rgba(191, 79, 24, 0.09);
+  color: var(--brand-dark);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.inner-list li {
+  margin-top: 6px;
+  color: #2d3245;
+  font-size: 0.93rem;
+}
+
+.status {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.status.error {
+  color: #b1372d;
+}
+
+.empty-state {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.array-preview {
+  margin: 8px 0 0;
+  color: #2d3245;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 24px 0 28px;
+  }
+
+  .hero {
+    padding: 20px;
+  }
+}
